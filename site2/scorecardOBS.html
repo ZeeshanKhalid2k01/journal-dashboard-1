@@ -61,11 +61,23 @@
           } else if (event.key === "r" || event.key === "R") {
             scoreElement.textContent = "REVIEW";
             scoreElement.style.fontSize = "100px";
+            scoreElement.style.color = "yellow";
+          } else if (event.key === "w" || event.key === "W") {
+            scoreElement.textContent = "WHITE BALL";
+            scoreElement.style.fontSize = "100px";
+            scoreElement.style.color = "yellow";
+          } else if (event.key === "d" || event.key === "D") {
+            scoreElement.textContent = "DECISION PENDING";
+            scoreElement.style.fontSize = "80px";
+            scoreElement.style.color = "yellow";
+          } else if (event.key === "a" || event.key === "A") {
+            scoreElement.textContent = "APPEAL";
+            scoreElement.style.fontSize = "100px";
             scoreElement.style.color = "red";
           } else if (event.key === "b" || event.key === "B") {
             scoreElement.textContent = "BALL";
             scoreElement.style.fontSize = "100px";
-            scoreElement.style.color = "red";
+            scoreElement.style.color = "yellow";
           } else if (event.key === "l") {
             scoreElement.textContent = "LBW";
             scoreElement.style.fontSize = "100px";
@@ -79,9 +91,9 @@
             scoreElement.style.fontSize = "80px";
             scoreElement.style.color = "yellow";
           }else if (event.key === "f") {
-                scoreElement.textContent = "FREE HIT";
-                scoreElement.style.fontSize = "100px";
-                scoreElement.style.color = "yellow";
+            scoreElement.textContent = "FREE HIT";
+            scoreElement.style.fontSize = "100px";
+            scoreElement.style.color = "yellow";
             }
         });
         </script>

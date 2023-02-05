@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+        body {
+          background-color: black;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+        }
+      
+        h1 {
+          color: white;
+          font-size: 154px;
+          font-weight: bold;
+          font-family: "Arial Black", Gadget, sans-serif;
+        }
+      </style>
+      
+  </head>
+  <body>
+    <h1 id="score"></h1>
+
+    <script>
+        const scoreElement = document.getElementById("score");
+        let blink = false;
+        let blinkInterval;
+        
+        document.addEventListener("keydown", (event) => {
+        
+          if (event.key >= 0 && event.key <= 6) {
+            scoreElement.textContent = event.key;
+            if (event.key === "4" || event.key === "6") {
+              clearInterval(blinkInterval);
+              blinkInterval = setInterval(() => {
+                blink = !blink;
+                scoreElement.style.color = blink ? "yellow" : "white";
+              }, 500);
+            } else {
+              clearInterval(blinkInterval);
+              scoreElement.style.color = "white";
+            }
+          } else if (event.key === "o") {
+            scoreElement.textContent = "OUT";
+            clearInterval(blinkInterval);
+            blinkInterval = setInterval(() => {
+              blink = !blink;
+              scoreElement.style.color = blink ? "red" : "red";
+              blink = !blink;
+              scoreElement.style.color = blink ? "red" : "red";
+            }, 500);
+            setTimeout(() => {
+              clearInterval(blinkInterval);
+              scoreElement.style.color = "white";
+            }, 10000);
+          } else if (event.key === "n") {
+            scoreElement.textContent = "NOT OUT";
+            scoreElement.style.fontSize = "80px";
+            scoreElement.style.color = "red";
+          } else if (event.key === "l") {
+            scoreElement.textContent = "LBW";
+            scoreElement.style.fontSize = "100px";
+            scoreElement.style.color = "yellow";
+          } else if (event.key === "s") {
+            scoreElement.textContent = "STUMPS";
+            scoreElement.style.fontSize = "100px";
+            scoreElement.style.color = "yellow";
+          } else if (event.key === "t") {
+            scoreElement.textContent = "TEA BREAK";
+            scoreElement.style.fontSize = "80px";
+            scoreElement.style.color = "yellow";
+          }else if (event.key === "f") {
+                scoreElement.textContent = "FREE HIT";
+                scoreElement.style.fontSize = "100px";
+                scoreElement.style.color = "yellow";
+            }
+        });
+        </script>
+    </body>
+    </html>
+    
